@@ -13,13 +13,13 @@
       <TarefaList
         msg="Welcome to Your Vue.js App"
         :tasks="listaDeTarefas"
+        @editarClick="recebiEditar"
       ></TarefaList>
     </div>
 
     <!-- FORM -->
     <div v-show="exibir.form">
-      <h2>Cadastrar tarefa</h2>
-      <input type="text" name="title" v-model="form.title" />
+      />
       <button class="btn" @click="salvarTarefa">SALVAR</button>
     </div>
   </div>
@@ -61,6 +61,7 @@ export default {
       this.exibir.lista = true;
       const novaTarefa = {
         title: this.form.title,
+        project: this.form.project,
         date: new Date().toLocaleDateString("pt"),
       };
       TasksApi.createTask(novaTarefa, () => {
@@ -75,3 +76,5 @@ export default {
 </script>
 
 <style></style>
+
+PAREI DEPOIS QUE O ROGER CRIOU O SEGUNDO INPUT ~ 11:05h
